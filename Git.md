@@ -11,6 +11,7 @@ Distributed Version Control
 - [GitHub](https://github.com/)
 - [Duke GitLab](https://gitlab.oit.duke.edu/)
 
+## Repository Structure for Development
 
 ## Cloning
 
@@ -19,6 +20,8 @@ Distributed Version Control
 ## Commit
 
 ### Commit Message
+
+- [Commit Message Best Practices](https://chris.beams.io/posts/git-commit/)
 
 ## Merge
 

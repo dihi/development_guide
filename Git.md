@@ -13,6 +13,60 @@ Distributed Version Control
 
 ## Repository Structure for Development
 
+### Basic Application
+
+```bash
+.github/
+app/
+    __init__.py
+    submodule/
+        __init__.py
+docs/
+tests/
+    __init__.py
+.env
+.gitignore
+contributing.md
+changelog.txt
+license
+README.md
+```
+
+### Airflow Compatible Model Runner (Python)
+
+```bash
+.github/
+airflow/
+    dags/
+        model_runner_dag.py
+assets/
+    example.model
+constants/
+    model_constants.json
+    groupers/
+        data_grouper.json
+db/
+    create_db.py
+    drop_db.py
+    models/
+        model.py
+src/
+    data_processing.py
+    lib/
+        __init__.py
+        data_processing_helpers.py
+    run_model.py
+.env
+.gitignore
+license
+contributing.md
+changelog.txt
+Pipfile
+Pipfile.lock
+README.md
+settings.py
+```
+
 ## Cloning
 
 ## Branch

@@ -7,7 +7,7 @@ The following describes how to request a Data Science code review, especially wh
 Usually, we will discuss when a project meets a milestone where a code review will be needed. In general, however, we usually will do a code review after the following steps:
 
 1. Cohort generation
-2. Creation of Modeling Matrix/Feature Engineering
+2. Feature Engineering
 3. Modeling
 4. Evaluation
 
@@ -19,11 +19,11 @@ Most of the time, your project should have a gitlab repository that we create. F
 
 The initial repository may have a relatively simple `Master` branch, which is the branch that we want to keep with clean code that we know is functional. 
 
-![](./assets/master_repo.png)
+![](./assets/adult_decomp.png)
 
 Your project folder in PACE should automatically be a git repository. When you type `git status`, you should see the following:
 
-![](./assets/adult_decomp.png)
+![](./assets/git_status.png)
 
 Next, you can commit your changes as usual and follow the Regular Use guidelines at the [Git usage guide](Git.md). 
 

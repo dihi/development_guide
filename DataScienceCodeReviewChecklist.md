@@ -29,5 +29,12 @@ import catboost
 print(catboost.__version__)
 ```
 
+## 5. Common pitfalls to avoid as you prepare for your code review
 
-
+* Data availability - do not use data to make predictions that is not available to the model at the time of prediction
+    * Diagnosis codes during the course of an encounter are not available during the encounter
+    * Many analyte results are not available at the time of collection. Only use analyte results that are available at the time of prediction.
+* Training / test sets - apply the same transformations to both sets
+    * Standardize transformations on the training set and then apply that exame same set of transformations to the test set
+* Test set selection - test model on a distinct, more recent temporal set of data
+    * Can pick either a discrete amount of time (e.g., most recent 6 months, most recent 12 months) or a discrete propotion of data (e.g., most recent 10% of data, most recent 20% of data)

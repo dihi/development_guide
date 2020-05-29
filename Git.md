@@ -30,62 +30,6 @@ Distributed version control provides a convenient, 'safe' backup of our code as 
 - [GitHub](https://github.com/)
 - [Duke GitLab](https://gitlab.oit.duke.edu/)
 
-## Repository Structure for Development
-
-### Basic Application
-
-```bash
-.github/
-app/
-    __init__.py
-    submodule/
-        __init__.py
-docs/
-tests/
-    __init__.py
-.env
-.gitignore
-contributing.md
-changelog.txt
-license
-README.md
-```
-
-### Airflow Compatible Model Runner (Python)
-
-```bash
-.github/
-airflow/
-    dags/
-        model_runner_dag.py
-assets/
-    example.model
-constants/
-    model_constants.json
-    groupers/
-        data_grouper.json
-db/
-    create_db.py
-    drop_db.py
-    models/
-        model.py
-src/
-    data_processing.py
-    lib/
-        __init__.py
-        data_processing_helpers.py
-    run_model.py
-.env
-.gitignore
-license
-contributing.md
-changelog.txt
-Pipfile
-Pipfile.lock
-README.md
-settings.py
-```
-
 ## Cloning
 
 ## Issues
@@ -146,10 +90,35 @@ A git branch is a divergence from the primary development commit path. Branches 
 
 ## Rebase
 
+The DIHI process for merging is typically:
+
+1. `git pull origin my-branch-to-rebase`
+1. `git checkout master`
+1. `git pull origin master`
+1. `git checkout my-branch-to-rebase`
+1. `git rebase -i master`
+1. `git push origin my-branch-to-rebase`
+1. `git merge master`
+1. `git push origin master`
+
+
+Rebasing a branch is the process of taking all of the changes / commits on the current branch and adding / replaying them on top of the HEAD of the branch being rebased to. This is similar in result to a merge, but keeps the commit history on the primary branch very linear and clean.
+
+```bash
+git checkout my-branch-to-rebase
+git rebase -i master
+```
+
+The `-i` flag starts rebase in 'interactive' mode which enables squashing of particular commits to clean up the commit tree prior to merge.
+
+ - [Git Rebase Documentation](https://git-scm.com/docs/git-rebase)  
+ - [Git Rebase, Gitbook Detail](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)  
+   - Pay special attention to the [Rebase Peril](https://git-scm.com/book/en/v2/Git-Branching-Rebasing#_rebase_peril)
+
 ## Merge
 
 ### Merge Conflict
 
-## Pull Request
+## Pull / Merge Request
 
-### Pull Request Messages
+### Pull / Merge Request Messages

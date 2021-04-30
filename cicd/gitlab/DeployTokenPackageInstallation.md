@@ -95,4 +95,7 @@ gitlab-ci uses variables declared in the `Settings > CI/CD > Variables` part of 
 
 ## Putting it all together
 
-We add our package install target repository's `GITLAB_DEPLOY_USER` and `GITLAB_DEPLOY_TOKEN` to our current repository variables @ `Settings > CI/CD > Variables`. We add the Kaniko build above with our declared `build-arg` values being imported from our CI Variables. This passes our CI Variables into our Dockerfile Build as ARGs (not ENV), letting us build the image with the variables in place without persistenting them into the layers or final image.  Inside the Dockerfile during the build, the ARGs are passed as inline ENV to the `pipenv install` command making them temporarily available.  Since their in the ENV for that command run, the `Pipfile` or `requirements.txt` pulling that information from the ENV is able to appropriately populate the required ENV substitutions for a successful build.
+1. We add our package install target repository's `GITLAB_DEPLOY_USER` and `GITLAB_DEPLOY_TOKEN` to our current repository variables @ `Settings > CI/CD > Variables`. 
+2. We add the Kaniko build above with our declared `build-arg` values being imported from our CI Variables. This passes our CI Variables into our Dockerfile Build as ARGs (not ENV), letting us build the image with the variables in place without persisting them into the layers or final image.  
+3. Inside the Dockerfile during the build, the ARGs are passed as inline ENV to the `pipenv install` command making them temporarily available.  
+4. Since the required variables are in the ENV for that command RUN step, the `Pipfile` or `requirements.txt` pulling that information from the ENV is able to appropriately populate the required ENV substitutions for a successful build.

@@ -15,15 +15,15 @@
 
 Local package installation with Pip/Pipenv is straightforward:
 
-`pipenv install -e package-setup-for-pip-install`
+`pipenv install -e /path/to/package-setup-for-pip-install`
 
-This can even be used to install 'remote' private packages using ssh or https authentication to a git repo.  This clones the repo and runs pip install behind the scenes.
+This can even be used to install 'remote' private packages using https authentication to a git repo.  This clones the repo and runs pip install behind the scenes.
 
 `pipenv install -e git+https://username:password@git-repo-url.git`
 
 ### Gitlab / Version Control
 
-We shouldn't store personal authentication information in Gitlab CI, so first we have to work around the username and password requirements for the 'private remote' `pipenv install -e`.  This is best done by replacing the username and password with a `gitlab-deploy-user` and `gitlab-deploy-token`.  These can be generated at a group level or, more commonly, within the repository of the private package you're attempting to pip install.
+We shouldn't store personal authentication information in VCS, so first we have to work around the username and password requirements for the 'private remote' `pipenv install -e`.  This is best done by replacing the username and password with a `gitlab-deploy-user` and `gitlab-deploy-token`.  These can be generated at a group level or, more commonly, within the repository of the private package you're attempting to pip install.
 
 TODO: Add link for how to create gitlab-deploy-tokens
 

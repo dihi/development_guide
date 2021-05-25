@@ -1,14 +1,16 @@
-# Python Tools
+# Tools
 
-## python-dotenv
+## Python
+
+### python-dotenv
 
 - [Python-Dotenv GitHub](https://github.com/theskumar/python-dotenv)
 
-## pyenv
+### pyenv
 
 - [pyenv GitHub](https://github.com/pyenv/pyenv)
 
-## Pipenv
+### Pipenv
 
 - [pipenv Documentation](https://docs.pipenv.org/en/latest/)
 - [pipenv GitHub](https://github.com/pypa/pipenv)

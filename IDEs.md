@@ -18,8 +18,3 @@ For more information visit: [VSCode Keybinding Documentation](https://code.visua
 - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
 - [Go](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go)
-
-## PyCharm
-
-- [PyCharm](https://www.jetbrains.com/pycharm/)
-

@@ -15,8 +15,10 @@ jobs:
           path: markdown
       - name: Push to wiki
         run: |
+          mkdir markdown-update
           cd markdown
-          find . \( ! -name '.git' -type d -or ! -type d -name . -or ! -type d -name . \) -exec rm -rf {} +
+          cp -R .git ../markdown-update
+          cd ../markdown-update
           cp -R ../base-code/wiki .
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"

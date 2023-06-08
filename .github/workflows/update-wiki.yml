@@ -6,15 +6,15 @@ jobs:
     steps:
       - name: Checkout base code
         uses: actions/checkout@v3.5.2
-          with:
-          path: base-code
+        with:
+        path: base-code
       - name: Checkout wiki code
         uses: actions/checkout@v3.5.2
-          with:
-          repository: ${{github.repository}}.wiki
-          path: markdown
+        with:
+        repository: ${{github.repository}}.wiki
+        path: markdown
       - name: Push to wiki
-          run: |
+        run: |
             cd markdown
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"

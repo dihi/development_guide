@@ -7,16 +7,16 @@ jobs:
       - name: Checkout base code
         uses: actions/checkout@v3.5.2
         with:
-        path: base-code
+          path: base-code
       - name: Checkout wiki code
         uses: actions/checkout@v3.5.2
         with:
         repository: ${{github.repository}}.wiki
-        path: markdown
+          path: markdown
       - name: Push to wiki
         run: |
-            cd markdown
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-            git add .
-            git diff-index --quiet HEAD || git commit -m "Add changes" && git push
+          cd markdown
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Add changes" && git push

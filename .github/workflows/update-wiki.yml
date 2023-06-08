@@ -16,7 +16,7 @@ jobs:
       - name: Push to wiki
         run: |
           cd markdown
-          find . ! -name '.git' -type d --delete
+          find . ! -name '.git' -type d -delete
           cp -R ../base-code/wiki .
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"

@@ -24,10 +24,13 @@ my_dihi_app/
     my_dihi_app/
     tests/
     scr/
+    .dockerignore
+    .env
+    .gitignore
+    license
     pyproject.toml
     poetry.lock
-    .gitignore
-    .dockerignore
+    README.md
 ```
 
 This structure fits nicely with how python, internally, expects packages to be structured.  All execution of everything can, and should, be managed from the root of the package.  Running everything with `python -m` having python treat the package as a `module`, ensures correct python pathing of imports within the package, regardless of location (no sister or out of path import errors).
@@ -41,10 +44,22 @@ All code on which your application depends should be under your `my_dihi_app` di
 5. my_dihi_app - the application or model being developed.  `my_dihi_app/cli.py` is the command line interface for your application.  All application dependent code and files should be under this directory.
 6. tests - the test suite for all of the code inside of `my_dihi_app`.  `python -m pytest tests` should run all tests.  This is configurable in the pyproject.toml
 7. scr - bash scripts wrapping more complex functions.  provides a clean interface for variable processes.  `scr/compose.sh up` performs compose up of the development stack.  The development stack may be different by project.
-8. pyproject.toml - The configuration and package dependency inventory for the project.  This is managed and constructed through `poetry` but can be edited to add configuration.
-9. poetry.lock - created by poetry this is the dependency map for all of the packages the project depends on.  This is used for deployment and, when build, ensures we don't have sub-package conflicts
-10. .gitignore - See [gitignore.io](https://www.toptal.com/developers/gitignore/) - A file used to tell git what not to include in commits.  Typically .env files with secrets or other temporary file types (`__pycache__`, etc).  Don't commit what shouldn't be shared.
-11. .dockerignore - tells docker what files to leave out of any built docker images. This will be similar to the .gitignore but may also include non-package files (.env, `__pycache__`, images, deploy, etc).  A good .dockerignore increases security of your images and reduces their build time.  Don't build what you don't need.
+8. .dockerignore - tells docker what files to leave out of any built docker images. This will be similar to the .gitignore but may also include non-package files (.env, `__pycache__`, images, deploy, etc).  A good .dockerignore increases security of your images and reduces their build time.  Don't build what you don't need.
+9. .env - a file to hold required environment variables for your application.  **DO NOT COMMIT THIS FILE**.  `.env` should be in your `.gitignore`
+10. .gitignore - See [gitignore.io](https://www.toptal.com/developers/gitignore/) - A file used to tell git what not to include in commits.  Typically `.env` files with secrets or other temporary file types (`__pycache__`, etc).  Don't commit what shouldn't be shared.
+11. LICENSE - simple "All Rights Reserved" license declaration file, see [License](#license)
+12. pyproject.toml - The configuration and package dependency inventory for the project.  This is managed and constructed through `poetry` but can be edited to add configuration.
+13. poetry.lock - created by poetry this is the dependency map for all of the packages the project depends on.  This is used for deployment and, when build, ensures we don't have sub-package conflicts
+14. README.md - A markdown summary of the contents of your package, what it does, and how to use it.  Should be brief with detail (and links to detail) in `/docs` 
+
+### License
+
+```
+Copyright {{ year }}, Duke Institute for Health Innovation (DIHI), 
+Duke University School of Medicine, Durham NC. 
+All Rights Reserved.
+```
+
 
 ## Best Practices
 

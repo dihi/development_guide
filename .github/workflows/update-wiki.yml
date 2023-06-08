@@ -1,16 +1,22 @@
-- name: Checkout base code
-    uses: actions/checkout@v2
-    with:
-    path: base-code
-- name: Checkout wiki code
-    uses: actions/checkout@v2
-    with:
-    repository: ${{github.repository}}.wiki
-    path: markdown
-- name: Push to wiki
-    run: |
-    cd markdown
-    git config --local user.email "action@github.com"
-    git config --local user.name "GitHub Action"
-    git add .
-    git diff-index --quiet HEAD || git commit -m "Add changes" && git push
+name: Update Development Guide Wiki
+on: [push]
+jobs:
+    Update-Wiki:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout base code
+            uses: uses: actions/checkout@v3.5.2
+            with:
+            path: base-code
+        - name: Checkout wiki code
+            uses: uses: actions/checkout@v3.5.2
+            with:
+            repository: ${{github.repository}}.wiki
+            path: markdown
+        - name: Push to wiki
+            run: |
+            cd markdown
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add .
+            git diff-index --quiet HEAD || git commit -m "Add changes" && git push
